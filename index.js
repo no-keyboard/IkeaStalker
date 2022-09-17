@@ -78,7 +78,7 @@ puppeteer.launch({
 			await page.waitForSelector("#usdh-availability-cash-and-carry-section");
 
 			await page.evaluate(() => {
-				const storeListOpen = Array.from(document.querySelectorAll('a')).find(el => el.innerText === "check other IKEA stores");
+				const storeListOpen = document.querySelector("#usdh-availability-cash-and-carry-section a");
 				storeListOpen.click();
 			});
 
