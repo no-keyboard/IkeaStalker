@@ -107,7 +107,13 @@ puppeteer.launch({
 					if(store.querySelector("h3 span")) {
 						console.log(store);
 						const storeName = store.querySelector("h3 span").innerText;
-						const storeInventory = store.querySelector("span").innerText;
+						const storeInventory = store.querySelector("span > span > span").innerHTML;
+
+						//fix for Ikea adding a Notify me link to the same span
+						if(storeInventory.includes("<a")) {
+							storeInvetory = storeInventory.substring(0, storeInventory.indexOf('.'));
+						}
+						
 						if(storesToCheck.includes(storeName)) {
 							product.stores.push({
 								store: storeName,
