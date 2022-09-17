@@ -78,10 +78,17 @@ puppeteer.launch({
 			await page.waitForSelector("#usdh-availability-cash-and-carry-section");
 
 			await page.evaluate(() => {
-				const storeListOpen = document.querySelector("#usdh-availability-cash-and-carry-section a");
-				storeListOpen.click();
+				const storeListModalOpen = document.querySelector("#usdh-availability-cash-and-carry-section a");
+				storeListModalOpen.click();
 			});
 
+			await page.waitForSelector("#usdh-availability-cash-and-carry-store-information");
+
+			await page.evaluate(() => {
+				const storeListOpen = document.querySelector("#usdh-availability-cash-and-carry-store-information button.usdh-availability-btn");
+				storeListOpen.click();
+			});
+			
 			await page.waitForSelector("div.usdh-availability-modal-body");
 			await page.waitForSelector("div.usdh-availability-store-search");
 
