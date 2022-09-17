@@ -111,7 +111,7 @@ puppeteer.launch({
 
 						//fix for Ikea adding a Notify me link to the same span
 						if(storeInventory.includes("<a")) {
-							storeInvetory = storeInventory.substring(0, storeInventory.indexOf('.'));
+							storeInventory = storeInventory.substring(0, storeInventory.indexOf('.'));
 						}
 						
 						if(storesToCheck.includes(storeName)) {
