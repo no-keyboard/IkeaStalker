@@ -75,22 +75,22 @@ puppeteer.launch({
 			console.log(`Going to ${url}`);
 			await page.goto(url);
 			console.log(`Successfully navigated to ${url}`);
-			await page.waitForSelector("#usdh-availability-cash-and-carry-section");
+			await page.waitForSelector("#usdh-pip-cash-and-carry-section");
 
 			await page.evaluate(() => {
-				const storeListModalOpen = document.querySelector("#usdh-availability-cash-and-carry-section a");
+				const storeListModalOpen = document.querySelector("#usdh-pip-cash-and-carry-section a");
 				storeListModalOpen.click();
 			});
 
-			await page.waitForSelector("#usdh-availability-cash-and-carry-store-information");
+			await page.waitForSelector("#usdh-pip-cash-and-carry-store-information");
 
 			await page.evaluate(() => {
-				const storeListOpen = document.querySelector("#usdh-availability-cash-and-carry-store-information button.usdh-availability-btn");
+				const storeListOpen = document.querySelector("#usdh-pip-cash-and-carry-store-information button.usdh-pip-btn");
 				storeListOpen.click();
 			});
 			
-			await page.waitForSelector("div.usdh-availability-modal-body");
-			await page.waitForSelector("div.usdh-availability-store-search");
+			await page.waitForSelector("div.usdh-pip-modal-body");
+			await page.waitForSelector("div.usdh-pip-store-search");
 
 			result = await page.evaluate(storesToCheck => {
 				const productTitle = document.querySelector("span.pip-header-section__title--big").innerText + " ";
@@ -101,7 +101,7 @@ puppeteer.launch({
 					stores: []
 				}
 				let storesChecked = [];
-				const storeList = document.querySelectorAll("div.usdh-availability-store-information-card");
+				const storeList = document.querySelectorAll("div.usdh-pip-store-information-card");
 
 				for(store of storeList) {
 					if(store.querySelector("h3 span")) {
