@@ -90,7 +90,7 @@ puppeteer.launch({
 			});
 			
 			await page.waitForSelector("div.usdh-pip-modal-body");
-			await page.waitForSelector("div.usdh-pip-store-search-store-information-section");
+			//await page.waitForSelector("div.usdh-pip-store-search-store-information-section");
 
 			result = await page.evaluate(storesToCheck => {
 				const productTitle = document.querySelector("span.pip-header-section__title--big").innerText + " ";
